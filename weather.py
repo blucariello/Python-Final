@@ -13,6 +13,7 @@ __status__ = "testing"
 import requests
 
 api_address = "http://api.openweathermap.org/data/2.5/weather?appid=f196d3f78dc2f7ac7f1318663aaba45e&q="
+
 city = input("City Name: ")
 
 url = api_address + city
