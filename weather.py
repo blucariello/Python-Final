@@ -12,14 +12,32 @@ __status__ = "testing"
 
 import requests
 
-api_address = "http://api.openweathermap.org/data/2.5/weather?appid=f196d3f78dc2f7ac7f1318663aaba45e&q="
+API_ADDRESS = "http://api.openweathermap.org/data/2.5/weather?appid=f196d3f78dc2f7ac7f1318663aaba45e&q="
 
-city = input("City Name: ")
+city = input("City Name, enter end to quit: ")
 
-url = api_address + city
+while city != "end":
+	
+	url = API_ADDRESS + city
+	json_data = requests.get(url).json()
 
-json_data = requests.get(url).json()
+	#print(json_data)
+	
+	formatted_data = json_data['weather'][0]['description']
+	formatted_data1 = json_data['weather'][0]['main']
 
-formatted_data = json_data['weather'][0]['description']
+	uppformatted = str(formatted_data)
+	uppformatted1 = str(formatted_data1)
 
-print(formatted_data)
+	print("Main report: " +uppformatted1.upper())
+	
+	print("Description of report: "+uppformatted.upper())
+	
+	city = input("City Name, enter end to quit: ")
+	
+	
+	
+
+
+
+
